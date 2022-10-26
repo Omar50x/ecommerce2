@@ -30,10 +30,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" href="display_all.php">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Register</a>
@@ -112,9 +112,7 @@
         </div>
 
         <!-- Last Child -->
-        <div class="bg-info p-3 text-center">
-            <p>All rights reserved &copy; Designed by Omar-2022</p>
-        </div>
+        <?php include("./includes/footer.php"); ?>
     </div>
 
     <!-- Bootstrap Js link -->

@@ -33,7 +33,7 @@
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
+                        <a class="nav-link" href="display_all.php">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Register</a>
@@ -48,7 +48,7 @@
                         <a class="nav-link" href="#">Total Price:</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="" method="GET">
+                <form class="d-flex" action="search_product.php" method="GET">
                     <input class="form-control me-2" type="search" name="search_data" placeholder="Search" aria-label="Search">
                     <input type="submit" name="search_data_product" value="Search" class="btn btn-outline-light">
                 </form>
@@ -81,7 +81,7 @@
                 <div class="row">
                     <!-- Fetching products -->
                     <?php
-                        search_product();
+                        get_all_products();
                         get_unique_categories();
                         get_unique_brands();
                     ?>
