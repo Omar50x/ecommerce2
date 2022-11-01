@@ -26,6 +26,7 @@
                                 <div class='card-body'>
                                     <h5 class='card-title'>$product_title</h5>
                                     <p class='card-text'>$product_description</p>
+                                    <p class='card-text'>Price: $product_price/-</p>
                                     <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
                                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                                 </div>
@@ -62,6 +63,7 @@
                                 <div class='card-body'>
                                     <h5 class='card-title'>$product_title</h5>
                                     <p class='card-text'>$product_description</p>
+                                    <p class='card-text'>Price: $product_price/-</p>
                                     <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
                                     <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                                 </div>
@@ -118,6 +120,7 @@
                             <div class='card-body'>
                                 <h5 class='card-title'>$product_title</h5>
                                 <p class='card-text'>$product_description</p>
+                                <p class='card-text'>Price: $product_price/-</p>
                                 <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
                                 <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                             </div>
@@ -173,6 +176,7 @@
                             <div class='card-body'>
                                 <h5 class='card-title'>$product_title</h5>
                                 <p class='card-text'>$product_description</p>
+                                <p class='card-text'>Price: $product_price/-</p>
                                 <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
                                 <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                             </div>
@@ -210,6 +214,7 @@
                             <div class='card-body'>
                                 <h5 class='card-title'>$product_title</h5>
                                 <p class='card-text'>$product_description</p>
+                                <p class='card-text'>Price: $product_price/-</p>
                                 <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
                                 <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
                             </div>
@@ -249,6 +254,7 @@
                                     <div class='card-body'>
                                         <h5 class='card-title'>$product_title</h5>
                                         <p class='card-text'>$product_description</p>
+                                        <p class='card-text'>Price: $product_price/-</p>
                                         <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
                                         <a href='index.php' class='btn btn-secondary'>Go home</a>
                                     </div>
@@ -330,5 +336,25 @@
             $count_cart_items = mysqli_num_rows($result_query);
         }
         echo $count_cart_items;
+    }
+
+    // Total price function
+    function total_cart_price() {
+        global $con;
+        $get_ip_add = getIPAddress();
+        $total_price = 0;
+        $cart_query = "Select * from `cart_details` where ip_address = '$get_ip_add'";
+        $result = mysqli_query($con, $cart_query);
+        while($row = mysqli_fetch_array($result)) {
+            $product_id = $row['product_id'];
+            $select_products = "Select * from `products` where product_id = '$product_id'";
+            $result_products = mysqli_query($con, $select_products);
+            while($row_product_price = mysqli_fetch_array($result_products)) {
+                $product_price = array($row_product_price['product_price']);
+                $product_values = array_sum($product_price);
+                $total_price += $product_values;
+            }
+        }
+        echo $total_price;
     }
 ?>
