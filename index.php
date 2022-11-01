@@ -56,6 +56,11 @@
             </div>
         </nav>
 
+        <!-- Calling cart function -->
+        <?php
+            cart();
+        ?>
+
         <!-- Second Child -->
         <div class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
