@@ -79,34 +79,9 @@
             <div class="col-md-10">
                 <!-- Products -->
                 <div class="row">
-                    <div class="col-md-4">
-                        <!-- Card -->
-                        <div class='card'>
-                            <img src='./images/apple.jpg' class='card-img-top' alt='$product_title'>
-                            <div class='card-body'>
-                                <h5 class='card-title'>$product_title</h5>
-                                <p class='card-text'>$product_description</p>
-                                <a href='#' class='btn btn-info'>Add to cart</a>
-                                <a href='product_details.php?product_id=$product_id' class='btn btn-secondary'>View more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <!-- Realted images -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4 class="text-center text-info mb-5">Related products</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <img src='./images/Pomme.jpg' class='card-img-top' alt='$product_title'>
-                            </div>
-                            <div class="col-md-6">
-                                <img src='./images/pomme-large.jpg' class='card-img-top' alt='$product_title'>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Fetching products -->
                     <?php
+                        view_details();
                         get_unique_categories();
                         get_unique_brands();
                     ?>
