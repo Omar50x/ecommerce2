@@ -84,6 +84,8 @@
                         getProducts();
                         get_unique_categories();
                         get_unique_brands();
+                        // $ip = getIPAddress();  
+                        // echo 'User Real IP Address - '.$ip;  
                     ?>
                 </div>
             </div>
